@@ -4,6 +4,7 @@ const delay = require('../middleware/delay');
 const ping = require('../middleware/ping');
 const error = require('../middleware/error');
 const json = require('../middleware/json');
+const update = require('../middleware/update');
 const getVersion = require('../middleware/get-version');
 const getFiles = require('../middleware/get-files');
 const getVideo = require('../middleware/get-video');
@@ -23,6 +24,8 @@ router.use(bodyParser.urlencoded({ extended: true }));
 router.use(bodyParser.json());
 
 router.use(json('after'));
+
+router.post('/post/update', update);
 
 router.post('/get/version', getVersion);
 
