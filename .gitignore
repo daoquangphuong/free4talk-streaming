@@ -4,7 +4,7 @@
 node_modules
 
 # tmp
-/dest/tmp
+/tmp
 
 # misc
 /.idea

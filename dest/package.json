@@ -27,10 +27,12 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "axios": "^0.24.0",
     "body-parser": "^1.18.3",
     "cors": "^2.8.5",
     "cross-env": "^7.0.3",
     "express": "^4.16.4",
+    "ms": "^2.1.3",
     "source-map-support": "^0.5.20",
     "torrent-stream": "^1.2.1"
   }

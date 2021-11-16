@@ -7,7 +7,7 @@
 node_modules
 
 # tmp
-/dest/tmp
+/tmp
 
 # Logs
 npm-debug.log*
