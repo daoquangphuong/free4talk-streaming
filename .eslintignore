@@ -1,0 +1,21 @@
+# Include your project-specific ignores in this file
+# Read about how to use .gitignore: https://help.github.com/articles/ignoring-files
+
+# See https://help.github.com/ignore-files/ for more about ignoring files.
+
+# Dependencies
+node_modules
+
+# tmp
+/dest/tmp
+
+# Logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Editors and IDEs
+.idea
+
+# Misc
+.DS_Store

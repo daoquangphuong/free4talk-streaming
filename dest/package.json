@@ -1,0 +1,37 @@
+{
+  "name": "free4talk-streaming",
+  "version": "1.0.0",
+  "private": true,
+  "engines": {
+    "node": "12.22.7",
+    "yarn": "1.22.4"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "NODE_ENV=production lint-staged"
+    }
+  },
+  "lint-staged": {
+    "src/*": [
+      "pretty-quick --staged"
+    ],
+    "src/**/*.js": [
+      "eslint --fix",
+      "git add"
+    ]
+  },
+  "scripts": {
+    "start": "cross-env NODE_ENV=production node index.js",
+    "dev": "cross-env NODE_ENV=development nodemon index.js"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "cors": "^2.8.5",
+    "cross-env": "^7.0.3",
+    "express": "^4.16.4",
+    "source-map-support": "^0.5.20",
+    "torrent-stream": "^1.2.1"
+  }
+}
