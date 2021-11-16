@@ -4,26 +4,19 @@ process.on('unhandledRejection', (reason, p) => {
   process.exit(1);
 });
 
-const express = require('express');
-const cors = require('cors');
-const routes = require('./routes');
-const config = require('./config');
+const { Worker } = require('worker_threads');
+const path = require('path');
+const update = require('./update');
 
-const app = express();
-
-app.use('/streaming', cors(), routes);
-
-app.listen(config.port, () => {
-  if (process.env.NODE_ENV !== 'production') {
-    console.info(
-      `You can now view free4talk-streaming-server in the browser. \n\n http://localhost:${config.port} \n`
-    );
-    return;
-  }
-  console.info(
-    `
-Free4Talk-Streaming-Server is started.
-You can comeback Free4Talk and start to use Streaming.
-  `.trim()
-  );
-});
+update
+  .check()
+  .then(() => {
+    const worker = new Worker(path.resolve(__dirname, 'server.js'));
+    worker.on('error', console.error);
+    worker.on('exit', code => {
+      if (code !== 0) {
+        console.error(`Worker stopped with exit code ${code}`);
+      }
+    });
+  })
+  .catch(console.error);

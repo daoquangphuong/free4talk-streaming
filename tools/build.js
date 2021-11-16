@@ -38,6 +38,7 @@ const webpackConfig = {
   },
   entry: {
     index: path.resolve(serverPath, 'index.js'),
+    server: path.resolve(serverPath, 'server.js'),
   },
   output: {
     filename: '[name].js',
@@ -59,11 +60,6 @@ const webpackConfig = {
       entryOnly: false,
     }),
   ],
-};
-
-const options = {
-  cwd: deployPath,
-  stdio: ['ignore', 'inherit', 'inherit'],
 };
 
 async function deploy() {
