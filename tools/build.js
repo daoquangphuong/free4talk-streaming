@@ -45,14 +45,14 @@ const webpackConfig = {
     path: path.resolve(deployPath),
   },
   devtool: 'source-map',
-  externals: [
-    (context, request, callback) => {
-      if (/^[^./].*$/.test(request)) {
-        return callback(null, `require("${request}");`);
-      }
-      return callback();
-    },
-  ],
+  // externals: [
+  //   (context, request, callback) => {
+  //     if (/^[^./].*$/.test(request)) {
+  //       return callback(null, `require("${request}");`);
+  //     }
+  //     return callback();
+  //   },
+  // ],
   plugins: [
     new webpack.BannerPlugin({
       banner: 'require("source-map-support").install();',
