@@ -21,8 +21,8 @@
     ]
   },
   "scripts": {
-    "start": "node dest/index.js",
-    "build": "node tools/build.js && pkg ./dest/index.js --out-path ./build && rm -rf ./dest/index.js ./dest/index.js.map"
+    "start": "node dest/server.js",
+    "build": "node tools/build.js && pkg ./dest/index.js --options no-warnings --out-path ./build && rm -rf ./dest/index.js ./dest/index.js.map"
   },
   "author": "",
   "license": "ISC",

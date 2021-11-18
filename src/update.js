@@ -10,6 +10,9 @@ const GIT_RAW_ENDPOINT = `https://raw.githubusercontent.com/daoquangphuong/free4
 
 const getCurrentVersion = async () => {
   try {
+    if (!fs.existsSync(path.resolve(ROOT, 'package.json'))) {
+      return `0.0.0`;
+    }
     const packageJson = fs.readFileSync(
       path.resolve(ROOT, 'package.json'),
       'utf8'

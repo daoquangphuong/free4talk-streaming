@@ -16,7 +16,7 @@ module.exports = {
   isDEV,
   cwd: CWD,
   serverFile: isDEV
-    ? path.resolve(__dirname, 'server.js')
+    ? path.resolve(__dirname, '../server.js')
     : path.resolve(CWD, 'server.js'),
   port: 8888,
   torrent: {
