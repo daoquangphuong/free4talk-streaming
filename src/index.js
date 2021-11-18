@@ -5,12 +5,12 @@ process.on('unhandledRejection', (reason, p) => {
 });
 
 const { Worker } = require('worker_threads');
-const path = require('path');
+const config = require('./config');
 const update = require('./update');
 
 const main = async () => {
   await update.check();
-  const worker = new Worker(path.resolve(__dirname, 'server.js'));
+  const worker = new Worker(config.serverFile);
   worker.on('message', data => {
     if (data && data.event === 'update') {
       worker.terminate();

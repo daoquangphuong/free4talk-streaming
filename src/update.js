@@ -1,11 +1,9 @@
 const path = require('path');
 const fs = require('fs');
 const { axiosFetch } = require('./models/axios');
+const config = require('./config');
 
-const ROOT =
-  process.env.NODE_ENV !== 'production'
-    ? path.resolve(__dirname, '../dest')
-    : path.resolve(__dirname);
+const ROOT = config.isDEV ? path.resolve(__dirname, '../dest') : config.cwd;
 
 const GIT_ENDPOINT = `https://github.com/daoquangphuong/free4talk-streaming/tree/master/dest`;
 const GIT_RAW_ENDPOINT = `https://raw.githubusercontent.com/daoquangphuong/free4talk-streaming/master/dest`;
