@@ -72,20 +72,26 @@ const updateFile = async fileName => {
   fs.writeFileSync(path.resolve(ROOT, fileName), fileContent, 'utf8');
 };
 
+const checkHasNewVersion = (currentVer, nextVer) => {
+  const c = currentVer.split('.');
+  const n = nextVer.split('.');
+  while (c.length < n.length) {
+    c.push('0');
+  }
+  while (n.length < c.length) {
+    n.push('0');
+  }
+  return n.some((v, k) => v > c[k]);
+};
+
 const check = async () => {
-  const currentVer = (await getCurrentVersion()).split('.');
-  const nextVer = (await getNextVersion()).split('.');
-  while (currentVer.length < nextVer.length) {
-    currentVer.push('0');
-  }
-  while (nextVer.length < currentVer.length) {
-    nextVer.push('0');
-  }
-  const hasNewVersion = nextVer.some((v, k) => v > currentVer[k]);
+  const currentVer = await getCurrentVersion();
+  const nextVer = await getNextVersion();
+  const hasNewVersion = checkHasNewVersion(currentVer, nextVer);
   if (!hasNewVersion) {
     return;
   }
-  console.info(`Has New Version ${nextVer.join('.')}`);
+  console.info(`Has New Version ${nextVer}`);
   console.info('Updating...');
   console.info('Please wait...');
   const folder = await getGitFolder();
