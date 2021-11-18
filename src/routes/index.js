@@ -5,7 +5,7 @@ const ping = require('../middleware/ping');
 const error = require('../middleware/error');
 const json = require('../middleware/json');
 const update = require('../middleware/update');
-const getVersion = require('../middleware/get-version');
+const getInfo = require('../middleware/get-info');
 const getFiles = require('../middleware/get-files');
 const getVideo = require('../middleware/get-video');
 
@@ -27,7 +27,7 @@ router.use(json('after'));
 
 router.post('/post/update', update);
 
-router.post('/get/version', getVersion);
+router.post('/get/info', getInfo);
 
 router.post('/get/files', getFiles);
 
