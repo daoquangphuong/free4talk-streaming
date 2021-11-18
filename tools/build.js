@@ -22,7 +22,6 @@ function webpackBundle(config) {
 const root = path.resolve(__dirname, '..');
 
 const serverPath = path.resolve(root, 'src');
-const buildPath = path.resolve(root, 'build');
 const deployPath = path.resolve(root, 'dest');
 
 const webpackConfig = {
@@ -64,11 +63,9 @@ const webpackConfig = {
 };
 
 async function deploy() {
-  await fsExtra.remove(buildPath);
   await fsExtra.remove(deployPath);
 
   await fsExtra.ensureDir(deployPath);
-  await fsExtra.ensureDir(buildPath);
 
   await webpackBundle(webpackConfig);
 
