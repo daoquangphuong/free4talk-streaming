@@ -1,3 +1,7 @@
+if (process.env.NODE_ENV === 'production') {
+  // eslint-disable-next-line global-require
+  require('source-map-support').install();
+}
 const express = require('express');
 const cors = require('cors');
 const routes = require('./routes');

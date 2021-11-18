@@ -54,13 +54,13 @@ const webpackConfig = {
   //     return callback();
   //   },
   // ],
-  plugins: [
-    new webpack.BannerPlugin({
-      banner: 'require("source-map-support").install();',
-      raw: true,
-      entryOnly: false,
-    }),
-  ],
+  // plugins: [
+  //   new webpack.BannerPlugin({
+  //     banner: 'require("source-map-support").install();',
+  //     raw: true,
+  //     entryOnly: false,
+  //   }),
+  // ],
 };
 
 async function deploy() {
