@@ -20,11 +20,11 @@ app.listen(config.port, () => {
   }
   console.info(
     `
--------------------------------------------------------
-[      Free4Talk-Streaming-Server is started.         ]
-[                                                     ]
-[   Comebacks Free4Talk and start to use Streaming.   ]
--------------------------------------------------------
+---------------------------------------------------------
+[      Free4Talk-Streaming-Server is now running.       ]
+[                                                       ]
+[   Comebacks Free4Talk and start to use Streaming.     ]
+---------------------------------------------------------
   `
   );
 });
