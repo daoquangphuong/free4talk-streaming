@@ -33,15 +33,12 @@ const getGitFolder = async () => {
     responseType: 'text',
     transformResponse: [res => res],
   });
-  const fileMatches = data.match(
-    /"\/daoquangphuong\/free4talk-streaming\/blob\/master\/dest\/(.+?)"/g
-  );
-  const files = fileMatches.map(item => {
-    const match = item.match(
-      /"\/daoquangphuong\/free4talk-streaming\/blob\/master\/dest\/(.+?)"/
-    );
-    return match[1];
-  });
+  const payloadMatch = data.match(/>({"payload":.+?})</);
+  if (!payloadMatch) {
+    throw new Error('not found payloadMatch');
+  }
+  const { payload } = JSON.parse(payloadMatch[1]);
+  const files = payload.tree.items.map(i => i.name);
   return files;
 };
 

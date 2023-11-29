@@ -45,6 +45,10 @@ const webpackConfig = {
     path: path.resolve(deployPath),
   },
   devtool: 'source-map',
+  externals: {
+    bufferutil: 'bufferutil',
+    'utf-8-validate': 'utf-8-validate',
+  },
   // externals: [
   //   (context, request, callback) => {
   //     if (/^[^./].*$/.test(request)) {
