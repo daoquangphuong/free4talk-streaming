@@ -24,7 +24,7 @@
     "start": "node --openssl-legacy-provider dest/server.js",
     "build": "node --openssl-legacy-provider tools/build.js && rm -rf ./dest/index.js ./dest/index.js.map",
     "pkg": "rm -rf ./build && node --openssl-legacy-provider tools/build.js && pkg ./dest/index.js --options no-warnings --out-path ./build && rm -rf ./dest/index.js ./dest/index.js.map && yarn zip",
-    "zip": "zip ./build/index-linux.zip ./build/index-linux && rm -rf ./build/index-linux && zip ./build/index-macos.zip ./build/index-macos && rm -rf ./build/index-macos && zip ./build/index-win.exe.zip ./build/index-win.exe && rm -rf ./build/index-win.exe"
+    "zip": "zip -j ./build/index-linux.zip ./build/index-linux && rm -rf ./build/index-linux && zip -j ./build/index-macos.zip ./build/index-macos && rm -rf ./build/index-macos && zip -j ./build/index-win.exe.zip ./build/index-win.exe && rm -rf ./build/index-win.exe"
   },
   "author": "",
   "license": "ISC",
