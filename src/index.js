@@ -8,6 +8,8 @@ const { Worker } = require('worker_threads');
 const config = require('./config');
 const update = require('./update');
 
+setTimeout(() => {}, 30000); // to keep process work in 30 seconds.
+
 const main = async () => {
   await update.check();
   const worker = new Worker(config.serverFile);
