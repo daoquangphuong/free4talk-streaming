@@ -38,7 +38,7 @@ const getGitFolder = async () => {
     throw new Error('not found payloadMatch');
   }
   const { payload } = JSON.parse(payloadMatch[1]);
-  const files = payload.tree.items.map(i => i.name);
+  const files = payload.codeViewTreeRoute.tree.items.map(i => i.name);
   return files;
 };
 
